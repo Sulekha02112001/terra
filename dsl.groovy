@@ -9,11 +9,9 @@ job("job2"){
              scm("* * * * *")
     }
 
-  steps {
-    batchFile('Xcopy /E /I  *  C:/Users/sulek/Documents/tera/job/')
-    batchFile('cd C:/Users/sulek/Documents/tera/job/')
-    batchFile('terraform init')
-    batchFile('terraform apply -auto-approve')
+    steps {
+    batchFile(readFileFromWorkspace('terraform init'))
+    batchFile(readFileFromWorkspace('terraform apply -auto-approve'))
   }
 
 }
