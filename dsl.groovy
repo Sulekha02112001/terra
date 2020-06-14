@@ -10,7 +10,10 @@ job("job2"){
     }
 
   steps {
-  batchFile('Xcopy /E /I  *  C:/Users/sulek/Documents/tera/job/','cd C:/Users/sulek/Documents/tera/job/', 'terraform init','terraform apply -auto-approve')
+    batchFile('Xcopy /E /I  *  C:/Users/sulek/Documents/tera/job/')
+    batchFile('cd C:/Users/sulek/Documents/tera/job/')
+    batchFile('terraform init')
+    batchFile('terraform apply -auto-approve')
   }
 
 }
